@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 class ProductViewController: UIViewController {
     
@@ -43,6 +42,8 @@ class ProductViewController: UIViewController {
         }
     }
 }
+
+// MARK: - UITableViewDataSource
 
 extension ProductViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

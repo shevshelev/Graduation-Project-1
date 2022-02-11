@@ -33,6 +33,11 @@ class RealmPersistentManager {
         }
     }
     
+    func getProducts() -> Results<Product> {
+        let products = realm.objects(Product.self)
+        return products
+    }
+    
     private func write(completion: () -> Void) {
         do {
             try realm.write {

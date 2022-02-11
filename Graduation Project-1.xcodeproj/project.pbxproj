@@ -30,7 +30,7 @@
 		B8E2EB432796878C00490DC5 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E2EB422796878C00490DC5 /* Category.swift */; };
 		B8E2EB462796C77D00490DC5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E2EB452796C77D00490DC5 /* NetworkManager.swift */; };
 		B8E2EB482796DEB800490DC5 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E2EB472796DEB800490DC5 /* CategoryTableViewController.swift */; };
-		B8E2EB4A2798144D00490DC5 /* SubcategoryTableViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E2EB492798144D00490DC5 /* SubcategoryTableViewControllerTableViewController.swift */; };
+		B8E2EB4A2798144D00490DC5 /* SubcategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E2EB492798144D00490DC5 /* SubcategoryTableViewController.swift */; };
 		B8E2EB5327982D2900490DC5 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E2EB5227982D2900490DC5 /* Products.swift */; };
 		B8E2EB5827983D2700490DC5 /* ProductsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E2EB5727983D2700490DC5 /* ProductsCollectionViewController.swift */; };
 /* End PBXBuildFile section */
@@ -62,7 +62,7 @@
 		B8E2EB422796878C00490DC5 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		B8E2EB452796C77D00490DC5 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B8E2EB472796DEB800490DC5 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
-		B8E2EB492798144D00490DC5 /* SubcategoryTableViewControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubcategoryTableViewControllerTableViewController.swift; sourceTree = "<group>"; };
+		B8E2EB492798144D00490DC5 /* SubcategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubcategoryTableViewController.swift; sourceTree = "<group>"; };
 		B8E2EB5227982D2900490DC5 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 		B8E2EB5727983D2700490DC5 /* ProductsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCollectionViewController.swift; sourceTree = "<group>"; };
 		FE9179872E53787881231D73 /* Pods-Graduation Project-1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Graduation Project-1.release.xcconfig"; path = "Target Support Files/Pods-Graduation Project-1/Pods-Graduation Project-1.release.xcconfig"; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 			children = (
 				B858070327B3CD3800340448 /* TabBarViewController.swift */,
 				B8E2EB472796DEB800490DC5 /* CategoryTableViewController.swift */,
-				B8E2EB492798144D00490DC5 /* SubcategoryTableViewControllerTableViewController.swift */,
+				B8E2EB492798144D00490DC5 /* SubcategoryTableViewController.swift */,
 				B8E2EB5727983D2700490DC5 /* ProductsCollectionViewController.swift */,
 				B89081BC27A3DD7A00CA4257 /* ProductViewController.swift */,
 				B8DC741127A42F0C00B56ECC /* OffersViewController.swift */,
@@ -342,7 +342,7 @@
 				B8E2EB5327982D2900490DC5 /* Products.swift in Sources */,
 				B8E2EB2D279686F500490DC5 /* SceneDelegate.swift in Sources */,
 				B89081BD27A3DD7A00CA4257 /* ProductViewController.swift in Sources */,
-				B8E2EB4A2798144D00490DC5 /* SubcategoryTableViewControllerTableViewController.swift in Sources */,
+				B8E2EB4A2798144D00490DC5 /* SubcategoryTableViewController.swift in Sources */,
 				B89081C127A3E1CA00CA4257 /* ProductImagesCollectionViewCell.swift in Sources */,
 				B858070627B3F10300340448 /* CategoryTableViewCell.swift in Sources */,
 				B8B0E29427AC23CA00C7DED7 /* CartProductTableViewCell.swift in Sources */,

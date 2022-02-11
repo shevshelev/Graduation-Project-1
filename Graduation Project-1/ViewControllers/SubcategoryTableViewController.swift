@@ -7,9 +7,9 @@
 
 import UIKit
 
-class SubcategoryTableViewControllerTableViewController: UITableViewController {
+class SubcategoryTableViewController: UITableViewController {
     
-    var subCaterories: [Subcategories] = []
+    var subCategories: [Subcategories] = []
 
     override func viewDidLoad() {
         tableView.rowHeight = 50
@@ -19,12 +19,12 @@ class SubcategoryTableViewControllerTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        subCaterories.count
+        subCategories.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "subCell", for: indexPath)
-        let category = subCaterories[indexPath.row]
+        let category = subCategories[indexPath.row]
         var content = cell.defaultContentConfiguration()
         content.text = category.name
         content.imageProperties.tintColor = .black
@@ -37,7 +37,7 @@ class SubcategoryTableViewControllerTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let subCategory = subCaterories[indexPath.row]
+        let subCategory = subCategories[indexPath.row]
         guard let productVC = storyboard?.instantiateViewController(withIdentifier: "ProductsVC") as? ProductsCollectionViewController else {return}
         productVC.title = subCategory.name
         productVC.categoryId = subCategory.id

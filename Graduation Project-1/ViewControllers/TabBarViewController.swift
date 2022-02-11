@@ -6,19 +6,17 @@
 //
 
 import UIKit
-import RealmSwift
 
 class TabBarViewController: UITabBarController {
     
-    var cartProduct: Results<Product>!
+    var cartProduct = RealmPersistentManager.shared.getProducts()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        cartProduct = RealmPersistentManager.shared.realm.objects(Product.self)
         setupBadge()
     }
     
-    func setupBadge() {
+    private func setupBadge() {
         if cartProduct.count != 0 {
             guard let viewControllers = viewControllers else {return}
             for vc in viewControllers {
@@ -28,16 +26,4 @@ class TabBarViewController: UITabBarController {
             }
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

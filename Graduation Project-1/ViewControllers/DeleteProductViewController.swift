@@ -21,9 +21,7 @@ class DeleteProductViewController: UIViewController {
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
     }
     @IBAction func yesButtonPressed() {
-//        guard let cartVC = storyboard?.instantiateViewController(withIdentifier: "cartVC") as? CartViewController else {return}
         RealmPersistentManager.shared.delete(product)
-//        cartVC.cartProducts = RealmPersistentManager.shared.realm.objects(Product.self)
         delegate.updateView()
         view.removeFromSuperview()
     }

@@ -9,8 +9,8 @@ import UIKit
 
 class CategoryTableViewController: UITableViewController {
     
-    let urlString = "https://blackstarshop.ru/index.php?route=api/v1/categories"
-    var categories: [Category] = []
+    private let urlString = "https://blackstarshop.ru/index.php?route=api/v1/categories"
+    private var categories: [Category] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,9 +61,9 @@ class CategoryTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         let category = categories[indexPath.row]
         if !category.subcategories.isEmpty {
-        guard let subCatVC = storyboard?.instantiateViewController(withIdentifier: "SubcategoryVC") as? SubcategoryTableViewControllerTableViewController else {return}
+        guard let subCatVC = storyboard?.instantiateViewController(withIdentifier: "SubcategoryVC") as? SubcategoryTableViewController else {return}
             subCatVC.title = category.name
-            subCatVC.subCaterories = category.subcategories.sorted()
+            subCatVC.subCategories = category.subcategories.sorted()
         navigationController?.pushViewController(subCatVC, animated: true)
         } else {
             guard let prodVC = storyboard?.instantiateViewController(withIdentifier: "ProductsVC") as? ProductsCollectionViewController else {return}

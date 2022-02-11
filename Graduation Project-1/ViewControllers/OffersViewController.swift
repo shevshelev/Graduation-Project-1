@@ -6,13 +6,12 @@
 //
 
 import UIKit
-import RealmSwift
 
 class OffersViewController: UIViewController {
     
     @IBOutlet var tabelView: UITableView!
     
-    private var cartProduct: Results<Product>!
+    private var cartProduct = RealmPersistentManager.shared.getProducts()
     
     var product: Product = Product()
 
@@ -33,6 +32,8 @@ class OffersViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDataSource
+
 extension OffersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         product.offers.count
@@ -46,12 +47,13 @@ extension OffersViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
+
 extension OffersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let offer = product.offers[indexPath.row]
         let product = createProduct(offer)
         RealmPersistentManager.shared.save(product)
-        cartProduct = RealmPersistentManager.shared.realm.objects(Product.self)
         
         if let viewControllers = tabBarController?.viewControllers {
             for vc in viewControllers {

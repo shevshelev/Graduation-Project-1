@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 protocol DeleteProductViewControllerDelegate {
     func updateView()
@@ -18,14 +17,8 @@ class CartViewController: UIViewController {
     @IBOutlet var button: UIButton!
     @IBOutlet var tableView: UITableView!
     
-    
-    var cartProducts: Results<Product>!
+    private var cartProducts = RealmPersistentManager.shared.getProducts()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        cartProducts = RealmPersistentManager.shared.realm.objects(Product.self)
-        setupViews()
-    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupViews()
@@ -47,6 +40,7 @@ class CartViewController: UIViewController {
             print("Заказали")
         }
     }
+    
     @IBAction func trashButtonPressed(_ sender: UIButton) {
         guard let deleteVC = storyboard?.instantiateViewController(withIdentifier: "deleteVC") as? DeleteProductViewController else {return}
         deleteVC.product = cartProducts[sender.tag]
@@ -58,7 +52,7 @@ class CartViewController: UIViewController {
         deleteVC.didMove(toParent: self)
     }
     
-    func setupViews() {
+    private func setupViews() {
         var totalSum: Double = 0
             for product in cartProducts {
                 totalSum += Double(product.price) ?? 0
@@ -79,6 +73,8 @@ class CartViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDataSource
+
 extension CartViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -94,6 +90,8 @@ extension CartViewController: UITableViewDataSource {
         return cell
     }
 }
+
+// MARK: - DeleteProductViewControllerDelegate
 
 extension CartViewController: DeleteProductViewControllerDelegate {
     func updateView() {
