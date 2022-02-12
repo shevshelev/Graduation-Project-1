@@ -47,10 +47,6 @@ extension ProductImageTableViewCell: UICollectionViewDelegateFlowLayout {
         let h = w / 1.5
         return CGSize(width: w, height: h)
     }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-    }
 }
 
 extension ProductImageTableViewCell {

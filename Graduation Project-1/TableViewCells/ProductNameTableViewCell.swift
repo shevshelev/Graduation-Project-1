@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProuductNameTableViewCell: UITableViewCell {
+class ProductNameTableViewCell: UITableViewCell {
 
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!

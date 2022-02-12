@@ -244,7 +244,7 @@
                                             <outlet property="pageControl" destination="Zqf-b9-KZO" id="mJG-EW-OCe"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="productNameCell" rowHeight="82" id="QEY-nX-GzH" customClass="ProuductNameTableViewCell" customModule="Graduation_Project_1" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="productNameCell" rowHeight="82" id="QEY-nX-GzH" customClass="ProductNameTableViewCell" customModule="Graduation_Project_1" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="293.5" width="414" height="82"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QEY-nX-GzH" id="BcJ-NK-BeG">

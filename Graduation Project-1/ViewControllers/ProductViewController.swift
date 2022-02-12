@@ -58,7 +58,7 @@ extension ProductViewController: UITableViewDataSource {
             cell.images = product.productImages
             return cell
         case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "productNameCell") as? ProuductNameTableViewCell else {return UITableViewCell()}
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "productNameCell") as? ProductNameTableViewCell else {return UITableViewCell()}
             cell.setupCell(product: product)
             return cell
         case 2:
