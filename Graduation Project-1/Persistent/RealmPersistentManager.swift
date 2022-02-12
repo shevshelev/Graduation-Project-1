@@ -11,9 +11,7 @@ class RealmPersistentManager {
     
     static let shared = RealmPersistentManager()
     
-    let realm = try! Realm()
-    
-    private init() {}
+    private let realm = try! Realm()
     
     func save(_ product: Product) {
         write {
@@ -38,6 +36,17 @@ class RealmPersistentManager {
         return products
     }
     
+    func getProduct(_ article: String) -> Product? {
+        let product = realm.object(ofType: Product.self, forPrimaryKey: article)
+        return product
+    }
+    
+    func addOffer(_ product: Product, _ offer: Offer) {
+        write {
+            product.orderedOffers.append(offer)
+        }
+    }
+    
     private func write(completion: () -> Void) {
         do {
             try realm.write {
@@ -47,4 +56,5 @@ class RealmPersistentManager {
             print(error.localizedDescription)
         }
     }
+    private init() {}
 }

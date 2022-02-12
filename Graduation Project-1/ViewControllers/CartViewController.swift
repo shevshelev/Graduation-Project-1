@@ -43,7 +43,7 @@ class CartViewController: UIViewController {
     
     @IBAction func trashButtonPressed(_ sender: UIButton) {
         guard let deleteVC = storyboard?.instantiateViewController(withIdentifier: "deleteVC") as? DeleteProductViewController else {return}
-        deleteVC.product = cartProducts[sender.tag]
+        deleteVC.article = cartProducts[sender.tag].article
         deleteVC.delegate = self
         
         self.addChild(deleteVC)
@@ -55,10 +55,16 @@ class CartViewController: UIViewController {
     private func setupViews() {
         var totalSum: Double = 0
             for product in cartProducts {
-                totalSum += Double(product.price) ?? 0
+                if let price = Double(product.price) {
+                totalSum += price * Double(product.orderedOffers.count)
+                }
             }
         if cartProducts.count != 0 {
-        tabBarItem.badgeValue = String(cartProducts.count)
+            var amountOfProducts = 0
+            for product in cartProducts {
+                amountOfProducts += product.orderedOffers.count
+            }
+        tabBarItem.badgeValue = String(amountOfProducts)
         } else {
             tabBarItem.badgeValue = nil
         }

@@ -13,7 +13,7 @@ class Product: Object, Codable {
     @Persisted var name: String = ""
     @Persisted var englishName: String = ""
     @Persisted var sortOrder: String = ""
-    @Persisted var article: String = ""
+    @Persisted(primaryKey: true) var article: String = ""
     @Persisted var collection: String?
     @Persisted var productDescription: String = ""
     @Persisted var colorName: String = ""
@@ -21,7 +21,7 @@ class Product: Object, Codable {
     @Persisted var mainImage: String = ""
     @Persisted var productImages: List<ProductImage>
     @Persisted var offers: List<Offer>
-    @Persisted var offer: Offer?
+    @Persisted var orderedOffers: List<Offer>
     @Persisted var recommendedProductIDs: List<String>
     @Persisted var price: String = ""
     @Persisted var oldPrice: String?
@@ -61,6 +61,10 @@ class Offer: Object, Codable {
 extension Product: Comparable {
     static func < (lhs: Product, rhs: Product) -> Bool {
         lhs.sortOrder < rhs.sortOrder
+    }
+    
+    static func == (lhs: Product, rhs: Product) -> Bool {
+        lhs.article == rhs.article
     }
 }
 

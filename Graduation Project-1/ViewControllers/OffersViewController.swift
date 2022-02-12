@@ -27,7 +27,7 @@ class OffersViewController: UIViewController {
     
     private func createProduct(_ offer: Offer) -> Product {
         let product = product
-        product.offer = offer
+        product.orderedOffers.append(offer)
         return product
     }
 }
@@ -52,13 +52,22 @@ extension OffersViewController: UITableViewDataSource {
 extension OffersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let offer = product.offers[indexPath.row]
-        let product = createProduct(offer)
-        RealmPersistentManager.shared.save(product)
+        
+        if let orderedProduct = RealmPersistentManager.shared.getProduct(product.article) {
+            RealmPersistentManager.shared.addOffer(orderedProduct, offer)
+        } else {
+            let product = createProduct(offer)
+            RealmPersistentManager.shared.save(product)
+        }
         
         if let viewControllers = tabBarController?.viewControllers {
             for vc in viewControllers {
-                if let cartVc = vc as? CartViewController {
-                    cartVc.tabBarItem.badgeValue = String(cartProduct.count)
+                if let cartVC = vc as? CartViewController {
+                    var amountOfProducts = 0
+                    for product in cartProduct {
+                        amountOfProducts += product.orderedOffers.count
+                    }
+                    cartVC.tabBarItem.badgeValue = String(amountOfProducts)
                 }
             }
         }

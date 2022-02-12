@@ -19,9 +19,16 @@ class CartProductTableViewCell: UITableViewCell {
     var product = Product()
     
     func setupCell() {
+        
+        var sizes = ""
+        
+        for offer in product.orderedOffers {
+            sizes += " \(offer.size)"
+        }
+        
         productImageView.image = ImageManager.shared.fetchImage(from: product.mainImage)
         nameLabel.text = product.name
-        sizeLabel.text = "Размер: \(product.offer?.size ?? "")"
+        sizeLabel.text = "Размеры: " + sizes
         colorLabel.text = "Цвет: \(product.colorName)"
         priceLabel.text = "\(Double(product.price) ?? 0)"
     }

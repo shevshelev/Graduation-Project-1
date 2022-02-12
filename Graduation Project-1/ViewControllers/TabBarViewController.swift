@@ -21,7 +21,11 @@ class TabBarViewController: UITabBarController {
             guard let viewControllers = viewControllers else {return}
             for vc in viewControllers {
                 if let cartVC = vc as? CartViewController {
-                    cartVC.tabBarItem.badgeValue = String(cartProduct.count)
+                    var amountOfProducts = 0
+                    for product in cartProduct {
+                        amountOfProducts += product.orderedOffers.count
+                    }
+                    cartVC.tabBarItem.badgeValue = String(amountOfProducts)
                 }
             }
         }
