@@ -11,8 +11,7 @@ class DeleteProductViewController: UIViewController {
     
     @IBOutlet var subView: UIView!
     
-//    var product = Product()
-    var article = ""
+    var product = Product()
     var delegate: DeleteProductViewControllerDelegate!
     
     
@@ -22,11 +21,16 @@ class DeleteProductViewController: UIViewController {
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
     }
     @IBAction func yesButtonPressed() {
-        if let product = RealmPersistentManager.shared.getProduct(article) {
-        RealmPersistentManager.shared.delete(product)
-        delegate.updateView()
+        if let product = RealmPersistentManager.shared.getProduct(product.article) {
+            if let orderedAmount = product.orderedAmount, orderedAmount > 1 {
+                RealmPersistentManager.shared.delOffer(product)
+                delegate.updateView()
+            } else {
+                RealmPersistentManager.shared.delete(product)
+                delegate.updateView()
+            }
+            view.removeFromSuperview()
         }
-        view.removeFromSuperview()
     }
     @IBAction func noButtonPressed() {
         view.removeFromSuperview()

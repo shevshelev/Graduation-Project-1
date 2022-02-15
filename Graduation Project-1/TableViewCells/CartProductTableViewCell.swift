@@ -16,19 +16,10 @@ class CartProductTableViewCell: UITableViewCell {
     @IBOutlet var priceLabel: UILabel!
     @IBOutlet var trashButton: UIButton!
     
-    var product = Product()
-    
-    func setupCell() {
-        
-        var sizes = ""
-        
-        for offer in product.orderedOffers {
-            sizes += " \(offer.size)"
-        }
-        
+    func setupCell(_ product: Product) {
         productImageView.image = ImageManager.shared.fetchImage(from: product.mainImage)
         nameLabel.text = product.name
-        sizeLabel.text = "Размеры: " + sizes
+        sizeLabel.text = "Размер: \(product.orderedOffer?.size ?? "") - \(product.orderedAmount ?? 0) шт."
         colorLabel.text = "Цвет: \(product.colorName)"
         priceLabel.text = "\(Double(product.price) ?? 0)"
     }

@@ -9,7 +9,7 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
     
-    var cartProduct = RealmPersistentManager.shared.getProducts()
+    private var cartProduct = RealmPersistentManager.shared.getProducts()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +21,12 @@ class TabBarViewController: UITabBarController {
             guard let viewControllers = viewControllers else {return}
             for vc in viewControllers {
                 if let cartVC = vc as? CartViewController {
-                    var amountOfProducts = 0
+                    var orderedAmount = 0
                     for product in cartProduct {
-                        amountOfProducts += product.orderedOffers.count
+                        guard let amount = product.orderedAmount else {return}
+                        orderedAmount = orderedAmount + amount
                     }
-                    cartVC.tabBarItem.badgeValue = String(amountOfProducts)
+                    cartVC.tabBarItem.badgeValue = String(orderedAmount)
                 }
             }
         }

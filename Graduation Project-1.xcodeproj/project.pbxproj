@@ -141,7 +141,7 @@
 		B8E2EB29279686F500490DC5 /* Graduation Project-1 */ = {
 			isa = PBXGroup;
 			children = (
-				B8E2EB442796C73800490DC5 /* Networking */,
+				B8E2EB442796C73800490DC5 /* Network */,
 				B858072327B79DC400340448 /* Services */,
 				B8DC741527A44EE100B56ECC /* Persistent */,
 				B8908191279FDFFD00CA4257 /* TableViewCells */,
@@ -198,12 +198,12 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		B8E2EB442796C73800490DC5 /* Networking */ = {
+		B8E2EB442796C73800490DC5 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				B8E2EB452796C77D00490DC5 /* NetworkManager.swift */,
 			);
-			path = Networking;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		B8E2EB5427983C7E00490DC5 /* CollectionViewCells */ = {

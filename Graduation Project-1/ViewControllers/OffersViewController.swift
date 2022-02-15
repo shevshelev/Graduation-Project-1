@@ -24,12 +24,6 @@ class OffersViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.removeFromSuperview()
     }
-    
-    private func createProduct(_ offer: Offer) -> Product {
-        let product = product
-        product.orderedOffers.append(offer)
-        return product
-    }
 }
 
 // MARK: - UITableViewDataSource
@@ -51,23 +45,25 @@ extension OffersViewController: UITableViewDataSource {
 
 extension OffersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let offer = product.offers[indexPath.row]
         
-        if let orderedProduct = RealmPersistentManager.shared.getProduct(product.article) {
-            RealmPersistentManager.shared.addOffer(orderedProduct, offer)
+        let offer = product.offers[indexPath.row]
+        let newArticle = product.article + "_" + offer.productOfferID
+        
+        if let orderedProduct = RealmPersistentManager.shared.getProduct(newArticle) {
+            RealmPersistentManager.shared.addOffer(orderedProduct)
         } else {
-            let product = createProduct(offer)
-            RealmPersistentManager.shared.save(product)
+            RealmPersistentManager.shared.createProduct(product, offer)
         }
         
         if let viewControllers = tabBarController?.viewControllers {
             for vc in viewControllers {
                 if let cartVC = vc as? CartViewController {
-                    var amountOfProducts = 0
+                    var orderedAmount = 0
                     for product in cartProduct {
-                        amountOfProducts += product.orderedOffers.count
+                        guard let amount = product.orderedAmount else {return}
+                        orderedAmount = orderedAmount + amount
                     }
-                    cartVC.tabBarItem.badgeValue = String(amountOfProducts)
+                    cartVC.tabBarItem.badgeValue = String(orderedAmount)
                 }
             }
         }

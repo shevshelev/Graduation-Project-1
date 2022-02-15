@@ -21,12 +21,13 @@ class Product: Object, Codable {
     @Persisted var mainImage: String = ""
     @Persisted var productImages: List<ProductImage>
     @Persisted var offers: List<Offer>
-    @Persisted var orderedOffers: List<Offer>
+    @Persisted var orderedOffer: Offer?
     @Persisted var recommendedProductIDs: List<String>
     @Persisted var price: String = ""
     @Persisted var oldPrice: String?
     @Persisted var tag: String?
-    
+    @Persisted var orderedAmount: Int?
+
     enum CodingKeys: String, CodingKey {
         case name
         case englishName

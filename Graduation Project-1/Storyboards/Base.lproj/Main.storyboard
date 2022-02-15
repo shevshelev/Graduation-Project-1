@@ -406,7 +406,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Итого:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gpV-lu-Dgh">
-                                <rect key="frame" x="20" y="674" width="64" height="24"/>
+                                <rect key="frame" x="20" y="694" width="64" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="F0j-4f-xFx"/>
                                 </constraints>
@@ -415,13 +415,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQY-oq-ptw">
-                                <rect key="frame" x="92" y="674" width="302" height="24"/>
+                                <rect key="frame" x="92" y="694" width="302" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xAX-7B-8jG">
-                                <rect key="frame" x="0.0" y="44" width="414" height="622"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="642"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CartCell" rowHeight="136" id="dwZ-nW-YxV" customClass="CartProductTableViewCell" customModule="Graduation_Project_1" customModuleProvider="target">
@@ -516,10 +516,10 @@
                         <viewLayoutGuide key="safeArea" id="otU-M7-deb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="bsa-12-g2C" firstAttribute="top" secondItem="qQY-oq-ptw" secondAttribute="bottom" constant="50" id="PLP-4f-Ii9"/>
+                            <constraint firstItem="bsa-12-g2C" firstAttribute="top" secondItem="qQY-oq-ptw" secondAttribute="bottom" constant="30" id="PLP-4f-Ii9"/>
                             <constraint firstItem="xAX-7B-8jG" firstAttribute="leading" secondItem="otU-M7-deb" secondAttribute="leading" id="PM9-ip-VrU"/>
                             <constraint firstItem="gpV-lu-Dgh" firstAttribute="top" secondItem="xAX-7B-8jG" secondAttribute="bottom" constant="8" id="QJN-ss-2eu"/>
-                            <constraint firstItem="bsa-12-g2C" firstAttribute="top" secondItem="gpV-lu-Dgh" secondAttribute="bottom" constant="50" id="RQN-sf-wSz"/>
+                            <constraint firstItem="bsa-12-g2C" firstAttribute="top" secondItem="gpV-lu-Dgh" secondAttribute="bottom" constant="30" id="RQN-sf-wSz"/>
                             <constraint firstItem="gpV-lu-Dgh" firstAttribute="leading" secondItem="otU-M7-deb" secondAttribute="leading" constant="20" id="UOl-w7-VuH"/>
                             <constraint firstItem="otU-M7-deb" firstAttribute="trailing" secondItem="qQY-oq-ptw" secondAttribute="trailing" constant="20" id="WI4-fE-L20"/>
                             <constraint firstItem="bsa-12-g2C" firstAttribute="bottom" secondItem="otU-M7-deb" secondAttribute="bottom" constant="-20" id="WUY-Cv-kRp"/>

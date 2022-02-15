@@ -43,7 +43,7 @@ class CartViewController: UIViewController {
     
     @IBAction func trashButtonPressed(_ sender: UIButton) {
         guard let deleteVC = storyboard?.instantiateViewController(withIdentifier: "deleteVC") as? DeleteProductViewController else {return}
-        deleteVC.article = cartProducts[sender.tag].article
+        deleteVC.product = cartProducts[sender.tag]
         deleteVC.delegate = self
         
         self.addChild(deleteVC)
@@ -54,20 +54,19 @@ class CartViewController: UIViewController {
     
     private func setupViews() {
         var totalSum: Double = 0
-            for product in cartProducts {
-                if let price = Double(product.price) {
-                totalSum += price * Double(product.orderedOffers.count)
-                }
-            }
-        if cartProducts.count != 0 {
-            var amountOfProducts = 0
-            for product in cartProducts {
-                amountOfProducts += product.orderedOffers.count
-            }
-        tabBarItem.badgeValue = String(amountOfProducts)
-        } else {
-            tabBarItem.badgeValue = nil
+        var orderedAmount = 0
+        
+        for product in cartProducts {
+            guard let price = Double(product.price) else {return}
+            totalSum = totalSum + price * Double(product.orderedAmount ?? 0)
         }
+        
+        for product in cartProducts {
+            guard let amount = product.orderedAmount else {return}
+            orderedAmount = orderedAmount + amount
+        }
+        tabBarItem.badgeValue = String(orderedAmount)
+        
         tableView.reloadData()
         priceLabel.text = "\(totalSum) руб."
         button.setTitle(
@@ -91,8 +90,7 @@ extension CartViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CartCell", for: indexPath) as? CartProductTableViewCell else {return UITableViewCell()}
         let product = cartProducts[indexPath.row]
         cell.trashButton.tag = indexPath.row
-        cell.product = product
-        cell.setupCell()
+        cell.setupCell(product)
         return cell
     }
 }
