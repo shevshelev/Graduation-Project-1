@@ -60,12 +60,16 @@ class CartViewController: UIViewController {
             guard let price = Double(product.price) else {return}
             totalSum = totalSum + price * Double(product.orderedAmount ?? 0)
         }
-        
-        for product in cartProducts {
-            guard let amount = product.orderedAmount else {return}
-            orderedAmount = orderedAmount + amount
+        if cartProducts.count != 0 {
+            for product in cartProducts {
+                guard let amount = product.orderedAmount else {return}
+                orderedAmount = orderedAmount + amount
+            }
+            tabBarItem.badgeValue = String(orderedAmount)
+        } else {
+            tabBarItem.badgeValue = nil
         }
-        tabBarItem.badgeValue = String(orderedAmount)
+        
         
         tableView.reloadData()
         priceLabel.text = "\(totalSum) руб."
